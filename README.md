@@ -1,6 +1,6 @@
 # Password Generator
 
-This project is a simple password generator created using React and Vite.
+This project is a simple password generator created using React, Vite, and Bootstrap.
 
 ## Getting Started
 

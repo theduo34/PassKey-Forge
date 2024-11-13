@@ -9,7 +9,7 @@ function App() {
   const [numberAllowed, setNumberAllowed] = useState(false);
  
   //memorized function(cached) to generate password 
-  const generatePassword = useCallback( () => {         //generatePassword  is a reference to memoized function
+  const generatePassword = useCallback( () => {
     let newPass = " ";
     let str = 
       "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -17,10 +17,10 @@ function App() {
     if( charAllowed ) str += "!@#$%^&*()_+{}:|<>?~`[];',./-=";
 
     for(let i = 1; i <= length; i++) {
+        //random generated password
       let randomGeneratedPassword = Math.floor(Math.random() * str.length + 1);
-      newPass += str.charAt(randomGeneratedPassword);           //random generated password
+      newPass += str.charAt(randomGeneratedPassword);
     }
-
     setPassword(newPass);
   }, [length, charAllowed, numberAllowed]);
 
@@ -38,8 +38,8 @@ function App() {
 
   return (
     <>
-      <div className='container-fluid bg-info py-4'>
-         <h1 className='text-danger'>Password Generator</h1>
+      <div className='container-fluid apricot-color py-4'>
+         <h1 className='text-info'>Password Generator</h1>
          <div className='input-group rounded-4 flex pt-4 align-items-center justify-content-center'>
             <input
             className="custom-width outline-none overflow-hidden"
@@ -58,7 +58,7 @@ function App() {
          </div>
 
          <div className='input-group d-flex align-items-center justify-content-center pt-4'>
-            <div className='input-group mx-4 align-items-center'>
+            <div className='input-group mx-4 align-items-center justify-content-center'>
                <input
                type='range'
                min={8}
@@ -75,7 +75,7 @@ function App() {
                <input
                type='checkbox'
                name='numbers'
-               defaultChecked={numberAllowed}
+               defaultChecked = {numberAllowed}
                onChange = {() => {
                   setNumberAllowed((prevValue) => !prevValue)
                 }}
@@ -87,7 +87,7 @@ function App() {
                type='checkbox'
                value= ''
                name='char'
-               defaultChecked={charAllowed}
+               defaultChecked = {charAllowed}
                onChange = {() => {
                 setCharAllowed((prevValue) => !prevValue);
                }}
